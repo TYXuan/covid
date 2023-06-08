@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker login -u tyxuan
+winpty docker login -u tyxuan
 cat ~/.docker/config.json
 docker run -d --name e9c79ca11ef4e7e4b8bc8ae078f0c89d56e75c45007b1bef3eff1418ff045376 -it f9c14fe76d50
 docker exec e9c79ca11ef4e7e4b8bc8ae078f0c89d56e75c45007b1bef3eff1418ff045376 pwd /usr/share
