@@ -5,8 +5,8 @@ import pandas as pd
 print('Downloading data...')
 
 import os
-os.environ['KAGGLE_USERNAME'] = "username"
-os.environ['KAGGLE_KEY'] = "key"
+os.environ['KAGGLE_USERNAME'] = "yxuann"
+os.environ['KAGGLE_KEY'] = "ac36787803b525335ecb015f9afb789f"
 
 from kaggle.api.kaggle_api_extended import KaggleApi
 api = KaggleApi()
