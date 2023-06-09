@@ -1,6 +1,14 @@
 from data import make_dataset
 import pandas as pd
 
+# Download data and save in local folder
+import wget
+print('Downloading data...')
+
+url = "https://www.kaggle.com/datasets/tawsifurrahman/covid19-radiography-database/download"
+wget.download(url, './data/')
+print('Data downloaded!')
+
 # Import dataset
 levels = ['Normal/images', 'COVID/images', 'Viral Pneumonia/images']
 path = "./data/COVID-19_Radiography_Dataset"
