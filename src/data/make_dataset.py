@@ -3,6 +3,32 @@ import numpy as np
 import pandas as pd
 import cv2
 
+def load_kaggle_file(kaggle_file, path, zipfile):
+    """Extracts contents of file into pandas DataFrame 
+
+    Args:
+        kaggle_file (string): Location of the zipfile on kaggle.
+        path (string): Local drive location to save kaggle zipfile.
+        zipfile (file): Zipfile saved in local drive.
+
+    Returns:
+        zObject: Returns unzipped file.
+    """
+    import os
+    os.environ['KAGGLE_USERNAME'] = "yxuann"
+    os.environ['KAGGLE_KEY'] = "ac36787803b525335ecb015f9afb789f"
+
+    from kaggle.api.kaggle_api_extended import KaggleApi
+    api = KaggleApi()
+    api.authenticate()
+    api.dataset_download_files(kaggle_file, path=path)
+
+    from zipfile import ZipFile
+    with ZipFile(zipfile, "r") as zObject:
+        zObject.extractall(path=path)
+
+    return zObject
+
 def read_img_file(path, levels, label_dict):
     """Extracts contents of file into pandas DataFrame 
 
