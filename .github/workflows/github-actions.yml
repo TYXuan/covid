@@ -12,11 +12,5 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Upload datasets
-        uses: actions/login-action@v2
-        env:
-          username: ${{ secrets.KAGGLE_USERNAME }}
-          key: ${{ secrets.KAGGLE_KEY }}
-
       - name: Run executable bash script
         run: bash ./run.sh
