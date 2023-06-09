@@ -2,11 +2,16 @@ from data import make_dataset
 import pandas as pd
 
 # Download data and save in local folder
-import wget
 print('Downloading data...')
 
-url = "https://www.kaggle.com/datasets/tawsifurrahman/covid19-radiography-database/download"
-wget.download(url, './data/')
+from kaggle.api.kaggle_api_extended import KaggleApi
+api = KaggleApi()
+api.authenticate()
+api.dataset_download_files('tawsifurrahman/covid19-radiography-database', path="./data/")
+
+from zipfile import ZipFile
+with ZipFile("./data/covid19-radiography-database.zip", "r") as zObject:
+    zObject.extractall(path="./data/")
 print('Data downloaded!')
 
 # Import dataset
