@@ -4,18 +4,24 @@ import pandas as pd
 # Download data and save in local folder
 print('Downloading data...')
 
-import os
-os.environ['KAGGLE_USERNAME'] = "yxuann"
-os.environ['KAGGLE_KEY'] = "ac36787803b525335ecb015f9afb789f"
+kaggle_file = "tawsifurrahman/covid19-radiography-database"
+path="./data/"
+zipfile = "./data/covid19-radiography-database.zip"
 
-from kaggle.api.kaggle_api_extended import KaggleApi
-api = KaggleApi()
-api.authenticate()
-api.dataset_download_files('tawsifurrahman/covid19-radiography-database', path="./data/")
+make_dataset.load_kaggle_file(kaggle_file, path, zipfile)
 
-from zipfile import ZipFile
-with ZipFile("./data/covid19-radiography-database.zip", "r") as zObject:
-    zObject.extractall(path="./data/")
+#import os
+#os.environ['KAGGLE_USERNAME'] = "yxuann"
+#os.environ['KAGGLE_KEY'] = "ac36787803b525335ecb015f9afb789f"
+
+#from kaggle.api.kaggle_api_extended import KaggleApi
+#api = KaggleApi()
+#api.authenticate()
+#api.dataset_download_files('tawsifurrahman/covid19-radiography-database', path="./data/")
+
+#from zipfile import ZipFile
+#with ZipFile("./data/covid19-radiography-database.zip", "r") as zObject:
+#    zObject.extractall(path="./data/")
 print('Data downloaded!')
 
 # Import dataset
