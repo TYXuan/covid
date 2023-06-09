@@ -11,3 +11,4 @@ pandas==1.4.2
 pip==21.2.4
 seaborn==0.11.2
 tensorflow==2.12.0
+wget==3.2
