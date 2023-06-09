@@ -1,10 +1,6 @@
 name: Detection of COVID-19 in Chest X-rays
 on: [push, workflow_dispatch]
 
-env:
-  username: ${{ secrets.KAGGLE_USERNAME }} 
-  key: ${{ secrets.KAGGLE_KEY }}
-
 jobs:
   run-end-to-end-pipeline:
     runs-on: ubuntu-latest
