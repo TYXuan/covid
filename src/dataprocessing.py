@@ -4,6 +4,10 @@ import pandas as pd
 # Download data and save in local folder
 print('Downloading data...')
 
+import os
+KAGGLE_USERNAME = os.environ['username']
+KAGGLE_KEY = os.environ['key']
+
 from kaggle.api.kaggle_api_extended import KaggleApi
 api = KaggleApi()
 api.authenticate()
